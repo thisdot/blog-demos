@@ -1,0 +1,195 @@
+@import '@fontsource/fira-mono';
+
+:root {
+	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--font-mono: 'Fira Mono', monospace;
+	--pure-white: #ffffff;
+	--primary-color: #b9c6d2;
+	--secondary-color: #d0dde9;
+	--tertiary-color: #edf0f8;
+	--accent-color: #ff3e00;
+	--heading-color: rgba(0, 0, 0, 0.7);
+	--text-color: #444444;
+	--background-without-opacity: rgba(255, 255, 255, 0.7);
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	background-color: var(--primary-color);
+	background: linear-gradient(
+		180deg,
+		var(--primary-color) 0%,
+		var(--secondary-color) 10.45%,
+		var(--tertiary-color) 41.35%
+	);
+}
+
+body::before {
+	content: '';
+	width: 80vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 10vw;
+	z-index: -1;
+	background: radial-gradient(
+		50% 50% at 50% 50%,
+		var(--pure-white) 0%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	opacity: 0.05;
+}
+
+#svelte {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+p {
+	font-weight: 400;
+	color: var(--heading-color);
+}
+
+p {
+	line-height: 1.5;
+}
+
+a {
+	color: var(--accent-color);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 2rem;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1rem;
+}
+
+pre {
+	font-size: 16px;
+	font-family: var(--font-mono);
+	background-color: rgba(255, 255, 255, 0.45);
+	border-radius: 3px;
+	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+	padding: 0.5em;
+	overflow-x: auto;
+	color: var(--text-color);
+}
+
+input,
+button {
+	font-size: inherit;
+	font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+@media (min-width: 720px) {
+	h1 {
+		font-size: 2.4rem;
+	}
+}
+
+form.auth {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
+}
+
+form.auth fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+form.auth legend {
+	display: block;
+	max-width: 100%;
+	margin-bottom: 0.5rem;
+	color: inherit;
+	white-space: normal;
+}
+
+form.auth [type='text'],
+form.auth [type='password']
+ {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	display: block;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 2.5rem;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid var(gray);
+	border-radius: 4px;
+	background-color: hsl(0 0% 100% / 10%);
+	background-blend-mode: luminosity;
+	box-shadow: none;
+	font-family: var(--font-body);
+	font-size: 1rem;
+	font-weight: normal;
+	line-height: 1.5;
+	color: var(--color-foreground);
+	box-sizing: border-box;
+}
+form.auth button {
+	height: 2.5rem;
+	margin-bottom: 10px;
+}
+
+form.auth [data-light] [type='text'],
+form.auth [data-light] [type='password'] {
+	color: var(--color-background);
+	background-color: hsl(0 0% 0% / 10%);
+}
+
+form.auth [type='text'][aria-invalid='true'],
+form.auth [type='password'][aria-invalid='true'] {
+	border-color: var(--color-invalid);
+}
+
+form.auth input:disabled,
+form.auth input[readonly] {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+label {
+	margin: 0;
+}
+
+::placeholder {
+	color: hsl(0 0% 100% / 65%);
+}
+
+.form-validation-error {
+	margin: 0;
+	margin-top: 0.25em;
+	color: var(--color-invalid);
+	font-size: 0.8rem;
+}
+
+.error-container {
+	background-color: hsla(356, 77%, 59%, 0.747);
+	border-radius: 0.25rem;
+	padding: 0.5rem 1rem;
+}
