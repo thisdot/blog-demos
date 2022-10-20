@@ -1,0 +1,17 @@
+{
+  "name": "heroku-express-with-nginx",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "17.x"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

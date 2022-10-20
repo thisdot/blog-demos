@@ -1,0 +1,11 @@
+server {
+    # https://github.com/docker-library/docs/tree/master/nginx#using-environment-variables-in-nginx-configuration-new-in-119
+    listen ${PORT};
+
+    error_log stderr;
+    access_log /dev/stdout;
+
+    location / {
+        proxy_pass https://www.google.com/;
+    }
+}    
