@@ -14,7 +14,7 @@ module.exports = {
   },
   // Based on https://github.com/BuilderIO/qwik/discussions/787#discussioncomment-3715103
   "viteFinal": async (config, options) => {
-    const { qwikVite: qwikVite } = await import('@builder.io/qwik/optimizer');
+    const { qwikVite } = await import('@builder.io/qwik/optimizer');
     config.plugins?.unshift(qwikVite());
     return config;
   },
