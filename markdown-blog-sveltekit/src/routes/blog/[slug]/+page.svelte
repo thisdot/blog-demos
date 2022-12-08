@@ -13,14 +13,14 @@
 
 <svelte:head>
   <title>{data.post.title} - Author</title>
-  <meta name="description" content={data.post.preview.text} />
+  <meta name="description" content={data.post.description} />
   <meta name="author" content="Author" />
 
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content={url} />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={data.post.title} />
-  <meta property="og:description" content={data.post.preview.text} />
+  <meta property="og:description" content={data.post.description} />
   <meta property="og:image" content={ogImage} />
 
   <!-- Twitter Meta Tags -->
@@ -28,28 +28,26 @@
   <meta property="twitter:domain" content="https://127.0.0.1:5173" />
   <meta property="twitter:url" content={url} />
   <meta name="twitter:title" content={data.post.title} />
-  <meta name="twitter:description" content={data.post.preview.text} />
+  <meta name="twitter:description" content={data.post.description} />
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
 <div class="root">
   <div class="post-container">
     <article>
-      <header class="flex flex-col">
+      <header>
         <h1
-          class="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+          class="post-title"
         >
           {data.post.title}
         </h1>
-        <div class="flex items-center order-first text-base text-zinc-400 dark:text-zinc-500">
-          <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-          <span class="ml-3">{data.post.date}</span>
+        <div class="post-details">
+          <span class="post-date">{data.post.date}</span>
         </div>
       </header>
 
       <!-- render the post -->
-      <div class="prose">
-        <p>Hello</p>
+      <div class="post-content">
         <svelte:component this={data.component} />
       </div>
     </article>
