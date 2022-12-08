@@ -1,11 +1,22 @@
 import { parse } from 'path';
 
+type GlobEntry = {
+  metadata: Post;
+  default: unknown;
+};
+export interface Post {
+  title: string;
+  description: string;
+  date: string;
+}
+
 // Get all posts and add metadata
-export const posts = Object.entries(import.meta.glob('/src/lib/posts/**/*.md', { eager: true }))
-  .map(([filepath, post]) => {
-    console.log(post);
+export const posts = Object.entries(
+  import.meta.glob<GlobEntry>('/src/lib/posts/**/*.md', { eager: true })
+)
+  .map(([filepath, globEntry]) => {
     return {
-      ...post.metadata,
+      ...globEntry.metadata,
 
       // generate the slug from the file path
       slug: parse(filepath).name,
