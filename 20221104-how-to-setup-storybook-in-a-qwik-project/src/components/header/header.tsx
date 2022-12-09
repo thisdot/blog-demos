@@ -1,4 +1,5 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import { QwikLogo } from "../icons/qwik";
 import styles from "./header.css?inline";
 
@@ -21,13 +22,13 @@ export default component$(({ menus }: HeaderProps) => {
       </div>
       <ul>
         {menus.map((menu) => (
-          <li key={menu.name}>
-            <a
+          <li key={menu.name} style={{padding: '5px'}}>
+            <Link
               href={menu.link}
-              target="_blank"
+              // target="_blank"
             >
-              {menu.name}
-            </a>
+             {menu.name}
+            </Link>
           </li>
         ))}
       </ul>

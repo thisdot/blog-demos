@@ -1,21 +1,38 @@
-import { component$, Slot } from '@builder.io/qwik';
+import { component$, createContext, Slot, useContextProvider, useStore } from '@builder.io/qwik';
 import Header from '../components/header/header';
 
+export interface SharedState {
+  bg: string;
+}
+
+export const RepoContext = createContext<SharedState>('repo-context');
+
+
 export default component$(() => {
+  const store = useStore<SharedState>(
+    {
+      bg: '',
+ 
+    },
+    { recursive: true }
+  );
+
   const menus = [
     {
       name: 'Docs',
-      link: 'https://qwik.builder.io/docs/components/overview/',
+      link: '/docs',
     },
     {
       name: 'Examples',
-      link: 'https://qwik.builder.io/examples/introduction/hello-world/',
+      link: '/examples',
     },
     {
       name: 'Tutorials',
-      link: 'https://qwik.builder.io/tutorial/welcome/overview/',
+      link: '/tutorials',
     },
   ]
+
+  useContextProvider(RepoContext, store);
   return (
     <>
       <main>
