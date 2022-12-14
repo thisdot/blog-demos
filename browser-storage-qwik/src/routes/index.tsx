@@ -4,14 +4,14 @@ import Form from '~/components/form';
 import { useLocalStorage } from '~/hooks/useLocalStorage';
 
 export default component$(() => {
-  const [value, setValue] = useLocalStorage("name", "Guest");
+  const [cachedName, setName] = useLocalStorage("name", "Guest");
 
   return (
     <div>
       <h1>
-        Welcome to Qwik {value} <span class="lightning">⚡️</span>
+        Welcome to Qwik {cachedName.value} <span class="lightning">⚡️</span>
       </h1>
-      <Form value={value} setValue={setValue} />
+      <Form value={cachedName.value} setValue={setName} />
       <br />
       <input type="button" value="Reload Page" onClick$={() => window.location.reload() } />
     </div>
