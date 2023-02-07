@@ -1,0 +1,20 @@
+{
+  "name": "apollo-server-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource": "^3.3.2",
+    "apollo-server": "^3.11.1",
+    "apollo-server-caching": "^3.3.0",
+    "dataloader": "^2.1.0",
+    "graphql-currency-scalars": "^0.0.1",
+    "nodemon": "^2.0.20"
+  }
+}
