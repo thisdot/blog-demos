@@ -9,9 +9,9 @@ const resolvers = {
     accessories: () => musicAccessories,
   },
   MusicAccessories: {
-    brands: (parent) => {
+    brand: (parent) => {
       const isBrandInAccessory = (brand) => brand.id === parent.brandId;
-      return musicBrands.filter(isBrandInAccessory);
+      return musicBrands.find(isBrandInAccessory);
     },
   },
 };

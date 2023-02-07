@@ -8,18 +8,19 @@ const resolvers = {
   USCurrency,
   Query: {
     brands: () => musicBrands,
-    accessory: (_, { id }, context) => context.dataSources.brandAcc.get(id),
+    accessory: (_, { id }, context) =>
+      context.dataSources.brandAccessories.get(id),
   },
   Brand: {
     accessories: (brand, _, context) =>
-      context.dataSources.brandAcc.getByBrand(brand),
+      context.dataSources.brandAccessories.getByBrand(brand),
   },
 };
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  dataSources: () => ({ brandAcc: new BrandAccessoryDataSource() }),
+  dataSources: () => ({ brandAccessories: new BrandAccessoryDataSource() }),
 });
 
 server

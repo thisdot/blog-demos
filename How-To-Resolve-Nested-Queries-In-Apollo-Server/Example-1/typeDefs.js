@@ -13,7 +13,7 @@ const typeDefs = gql`
     product: String
     price: USCurrency
     brandId: Int
-    brands: [MusicBrand]
+    brand: MusicBrand
   }
 
   type Query {
