@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ## Other docker containers ...
+  redis:
+    image: 'redis:alpine'
+    command: redis-server
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./misc/data:/var/lib/redis
+      - ./misc/conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
