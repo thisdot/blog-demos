@@ -1,0 +1,26 @@
+{
+  "name": "enum-restaurant-server",
+  "version": "1.0.0",
+  "description": "back-end demo app for restaurant API",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "nodemon src/index"
+  },
+  "dependencies": {
+    "apollo-server": "^3.11.0",
+    "google-libphonenumber": "^3.2.30",
+    "graphql": "^15.8.0",
+    "graphql-tag": "^2.12.6",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/google-libphonenumber": "^7.4.23",
+    "dotenv": "^8.6.0",
+    "nodemon": "^2.0.20",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5"
+  },
+  "author": "William Hutt",
+  "license": "MIT",
+  "private": true
+}
