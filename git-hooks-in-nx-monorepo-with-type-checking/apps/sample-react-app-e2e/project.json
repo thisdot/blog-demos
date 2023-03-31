@@ -1,0 +1,41 @@
+{
+  "name": "sample-react-app-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/sample-react-app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/sample-react-app-e2e/cypress.config.ts",
+        "devServerTarget": "sample-react-app:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "sample-react-app:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "sample-react-app:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/sample-react-app-e2e/**/*.{js,ts}"]
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -p tsconfig.json --noEmit"],
+        "cwd": "apps/sample-react-app-e2e",
+        "forwardAllArgs": false
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["sample-react-app"]
+}
