@@ -1,0 +1,64 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import FormattedDate from '../../components/FormattedDate.astro';
+import type { BlogPost } from '../../types';
+import type { MarkdownInstance, MDXInstance } from 'astro';
+
+const getSlug = (post: MarkdownInstance<BlogPost> | MDXInstance<BlogPost>) => post.frontmatter.slug && `/old_blog/${post.frontmatter.slug}`;
+const getDate = (date: string) => new Date(date);
+
+const [mdPosts, mdxPosts] = await Promise.all([
+	Astro.glob<BlogPost>('./**/*.md'),
+	Astro.glob<BlogPost>('./**/*.mdx'),
+]);
+
+const posts = [...mdPosts, ...mdxPosts].sort(
+	(a, b) => getDate(a.frontmatter.pubDate).valueOf() - getDate(b.frontmatter.pubDate).valueOf()
+);
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			ul {
+				list-style-type: none;
+				padding: unset;
+			}
+			ul li {
+				display: flex;
+			}
+			ul li :global(time) {
+				flex: 0 0 130px;
+				font-style: italic;
+				color: #595959;
+			}
+			ul li a:visited {
+				color: #8e32dc;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<FormattedDate date={getDate(post.frontmatter.pubDate)} />
+								<a href={getSlug(post)}>{post.frontmatter.title}</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

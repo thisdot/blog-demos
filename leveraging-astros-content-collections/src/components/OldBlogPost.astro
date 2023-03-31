@@ -1,0 +1,28 @@
+---
+import type { BlogPost } from '../types';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const getDate = (date: string) => new Date(date);
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+const { title, pubDate, updatedDate, heroImage } = post;
+---
+
+<article>
+  {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+  <h1 class="title">{title}</h1>
+  <FormattedDate date={getDate(pubDate)} />
+  {
+    updatedDate && (
+      <div class="last-updated-on">
+        Last updated on <FormattedDate date={getDate(updatedDate)} />
+      </div>
+    )
+  }
+  <hr />
+  <slot />
+</article>
