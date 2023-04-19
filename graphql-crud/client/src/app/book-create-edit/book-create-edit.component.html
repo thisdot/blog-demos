@@ -1,0 +1,50 @@
+<div class="book-edit">
+  <div class="row">
+    <div class="col">
+      <h2 class="h2">{{ title }}</h2>
+      <form name="form" (ngSubmit)="f.form.valid && onSave()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input required type="text" name="name" class="form-control" 
+           [(ngModel)]="model.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && genre.invalid }">
+          <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+              <div *ngIf="name.errors.required">Book Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <input required type="text" name="genre" class="form-control" 
+            [(ngModel)]="model.genre" #genre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && genre.invalid }">
+          <div *ngIf="f.submitted && genre.invalid" class="invalid-feedback">
+              <div *ngIf="genre.errors.required">Book Genre is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <select required class="form-control" name="authorId" 
+          [(ngModel)]="model.authorId" #authorId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && authorId.invalid }">
+            <option value="">Please select an Author</option>
+            <option *ngFor="let author of authors" [value]="author.id">
+              {{ author.name }}
+            </option>
+          </select>
+          <div *ngIf="f.submitted && authorId.invalid" class="invalid-feedback">
+              <div *ngIf="authorId.errors.required">Author is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="controls">
+            <div class="reset">
+              <button class="btn btn-warning" type="reset">Reset</button>
+            </div>
+            <div class="manage">
+              <button class="btn btn-danger" [disabled]="!enableDelete()" (click)="delete()">Delete</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>  
+        </div>
+      </form>
+      <pre>{{f.value | json}}</pre>
+    </div>
+  </div>
+</div>

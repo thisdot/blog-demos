@@ -1,0 +1,22 @@
+<div class="books">
+  <div class="row">
+    <div class="col">
+      <h2 class="h2 list">List of Books</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Book Name</th>
+            <th>Book Genre</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books" (click)="selectBook(book)">
+            <td>{{ book.name }}</td>
+            <td>{{ book.genre }}</td>
+            <td>{{ book.author.name }}</td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>

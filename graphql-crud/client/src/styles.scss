@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    margin: 15px auto 20px;
+    font-size :2rem;
+    background-color: rgba(255,182,193,0.2);
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.5rem !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .h2.list {
+        text-align: left;
+    }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "GraphQL CRUD Sample",
+  "description": "A GraphQL Node.js server and Angular 7 client to demonstrate CRUD operations with GraphQL with Mongo DB.",
+  "repository": "https://github.com/thisdot/graphql-crud",
+  "logo": "https://graphql.org/img/logo.svg",
+  "keywords": ["graphql", "angular", "apollo"]
+}

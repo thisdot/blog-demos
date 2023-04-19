@@ -1,0 +1,31 @@
+.book-edit {
+    padding: 10px 20px;
+    margin: 0 auto;
+    max-width: 90%;
+    background-color: rgba(255,182,193,0.4);
+}
+
+.controls {
+    display: flex;
+    box-sizing: border-box; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reset, {
+    flex: 1;
+}
+
+.manage {
+    flex: 2;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.manage button {
+    margin-right: 5px;
+}
+
+.manage button:last-of-type {
+    margin-right: 0;
+}
