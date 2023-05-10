@@ -9,13 +9,12 @@ export function injectSharedStylesheet(
   content: string
 ) {
   const root = element.getRootNode() as DocumentOrShadowRoot;
-  const targetDocument = root === document ? document : root;
 
-  if (targetDocument.adoptedStyleSheets != null) {
+  if (root.adoptedStyleSheets != null) {
     evictDisconnectedRoots();
 
     const rootNodes = documentStylesheets[id] ?? [];
-    if (rootNodes.find(value => value === targetDocument)) {
+    if (rootNodes.find(value => value === root)) {
       return;
     }
 
@@ -26,11 +25,11 @@ export function injectSharedStylesheet(
       sharedStylesheets[id] = sharedStylesheet;
     }
 
-    targetDocument.adoptedStyleSheets.push(sharedStylesheet);
+    root.adoptedStyleSheets.push(sharedStylesheet);
     if (documentStylesheets[id] != null) {
-      documentStylesheets[id].push(targetDocument);
+      documentStylesheets[id].push(root);
     } else {
-      documentStylesheets[id] = [targetDocument];
+      documentStylesheets[id] = [root];
     }
   } else {
     // FALLBACK: Inject <style> manually into the document if adoptedStyleSheets
