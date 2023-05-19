@@ -1,6 +1,6 @@
 import { RestaurantGuestResponse, FoodReservation } from "../types/restaurant";
 
-export const restaruantGuestMapper = (guest: RestaurantGuestResponse) => {
+export const restaurantGuestMapper = (guest: RestaurantGuestResponse) => {
   if (!guest) {
     return null;
   }

@@ -1,4 +1,4 @@
-import { restaruantGuestMapper } from "../utils/mapper";
+import { restaurantGuestMapper } from "../utils/mapper";
 import { FoodReservation } from "../types/restaurant";
 
 const mockFoodRes = FoodReservation["Yes"];
@@ -17,7 +17,7 @@ const guestObject = {
 export const resolvers = {
   Query: {
     restaurantGuest: (_: any, __: any, ___: any) => {
-      return restaruantGuestMapper(guestObject);
+      return restaurantGuestMapper(guestObject);
     },
   },
 };

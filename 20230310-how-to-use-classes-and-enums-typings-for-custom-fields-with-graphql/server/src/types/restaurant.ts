@@ -4,7 +4,7 @@ export enum FoodReservation {
 }
 
 type RestaurantGuestFieldLookup<
-  TId extends string | number | "" | null,
+  TId extends string | number | null,
   TValue extends string | null
 > = {
   id: TId;
