@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "blog-test"
+client_id = "f025beebeabbe6d4f76d3565c6feedb2"
+application_url = "https://part-nonprofit-governing-admit.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,read_orders,read_assigned_fulfillment_orders,read_merchant_managed_fulfillment_orders,read_third_party_fulfillment_orders,write_assigned_fulfillment_orders,write_merchant_managed_fulfillment_orders,write_third_party_fulfillment_orders"
+
+[auth]
+redirect_urls = [
+  "https://part-nonprofit-governing-admit.trycloudflare.com/auth/callback",
+  "https://part-nonprofit-governing-admit.trycloudflare.com/auth/shopify/callback",
+  "https://part-nonprofit-governing-admit.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-07"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-d9a17edf.myshopify.com"
