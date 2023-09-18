@@ -1,0 +1,22 @@
+<h1>Attribute Directive Demo</h1>
+
+<button class="dialog-demo-button" (click)="showDialog($event)">
+  Show Dialog Box
+</button>
+
+<app-dialog
+  *ngIf="showDialog$ | async"
+  (dismiss)="dismissDialog()"
+></app-dialog>
+
+<div class="drag-drop-demo" [appDragDrop]="drop.bind(this)">
+  Drag me over something!
+</div>
+<div class="drag-drop-label">
+  Last Target: {{ (lastTarget$ | async) ?? "TBD" }}
+</div>
+
+<h2>This is an h2</h2>
+<h3>This is an h3</h3>
+<h4>This is an h4</h4>
+<p>This is a paragraph!</p>
