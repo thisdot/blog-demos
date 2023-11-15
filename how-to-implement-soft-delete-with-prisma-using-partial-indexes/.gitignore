@@ -1,0 +1,6 @@
+node_modules
+# Keep environment variables out of version control
+.env
+# Don't add the database
+prisma/dev.db
+prisma/dev.db-journal
