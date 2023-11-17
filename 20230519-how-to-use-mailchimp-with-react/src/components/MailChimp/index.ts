@@ -1,0 +1,1 @@
+export { MailChimp } from './MailChimp';
