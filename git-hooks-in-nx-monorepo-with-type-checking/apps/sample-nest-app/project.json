@@ -1,0 +1,72 @@
+{
+  "name": "sample-nest-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/sample-nest-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/sample-nest-app",
+        "main": "apps/sample-nest-app/src/main.ts",
+        "tsConfig": "apps/sample-nest-app/tsconfig.app.json",
+        "assets": ["apps/sample-nest-app/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/sample-nest-app/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "sample-nest-app:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "sample-nest-app:build:development"
+        },
+        "production": {
+          "buildTarget": "sample-nest-app:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/sample-nest-app/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/sample-nest-app/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["tsc -p tsconfig.app.json --noEmit"],
+        "cwd": "apps/sample-nest-app",
+        "forwardAllArgs": false
+      }
+    }
+  },
+  "tags": []
+}
