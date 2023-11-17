@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  padding: 1px;
+  height: 100vh;
+
+  /* Warning: This style is global, hence the high specificity of the query. */
+  .scanner-container > zxing-scanner.scanner::ng-deep video {
+    --border-size: 50px;
+    --border-thickness: 5px;
+    --border-gap: 20px;
+    --border-color: red;
+
+    max-height: 60vh;
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+    object-fit: cover;
+
+    background-clip: content-box;
+    background-color: black;
+    border-radius: 10px;
+    padding: calc(var(--border-gap) + var(--border-thickness));
+    outline: var(--border-thickness) solid var(--border-color);
+    outline-offset: calc(-1 * var(--border-thickness));
+    mask: conic-gradient(
+          at var(--border-size) var(--border-size),
+          #0000 75%,
+          #000 0
+        )
+        0 0 / calc(100% - var(--border-size)) calc(100% - var(--border-size)),
+      linear-gradient(#000 0 0) content-box;
+    transition: 0.4s;
+
+    :hover {
+      outline-offset: calc(var(--border-gap) / -1);
+    }
+  }
+}
+
+.scanner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 75vw;
+  margin: 32px auto;
+}
+
+.scanner {
+  display: block;
+}
+
+.scan-result {
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+}
+
+.toggle-camera-btn-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.toggle-camera-btn {
+  display: block;
+  margin: 32px auto;
+  width: 256px;
+  height: 42px;
+}

@@ -1,0 +1,31 @@
+<h1 class="page-title">QR Code Scanner Example</h1>
+
+<div class="scanner-container">
+  <zxing-scanner
+    #scanner
+    *ngIf="startCamera$ | async"
+    class="scanner"
+    [enable]="(enable$ | async) ?? false"
+    [autostart]="true"
+    [device]="(selectedDevice$ | async) ?? undefined"
+    [formats]="allowedFormats"
+    (camerasFound)="devices$.next($event)"
+    (scanSuccess)="scanSuccess$.next($event)"
+    (scanError)="scanError($event)"
+  ></zxing-scanner>
+</div>
+
+<p *ngIf="scanSuccess$ | async" class="scan-result">
+  Scan Result: {{ scanSuccess$ | async }}
+</p>
+
+<div class="toggle-camera-btn-container">
+  <button
+    class="toggle-camera-btn"
+    mat-flat-button
+    color="primary"
+    (click)="toggleCamera$.next(true)"
+  >
+    Toggle Camera
+  </button>
+</div>

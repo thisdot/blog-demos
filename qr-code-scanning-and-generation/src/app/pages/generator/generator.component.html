@@ -1,0 +1,21 @@
+<h1 class="page-title">QR Code Generator Example</h1>
+
+<div class="page-content">
+  <ngx-kjua
+    class="code"
+    *ngIf="code$ | async"
+    [text]="code$ | async"
+    [size]="256"
+  ></ngx-kjua>
+
+  <p class="code-text">Generated Code: {{ code$ | async }}</p>
+
+  <button
+    class="generate-code-btn"
+    mat-flat-button
+    color="primary"
+    (click)="generateCodeClick($event)"
+  >
+    Generate New Code
+  </button>
+</div>
