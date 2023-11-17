@@ -1,0 +1,29 @@
+{
+  "name": "rn-web-routing",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
+    "@types/react": "~18.0.27",
+    "expo": "~48.0.10",
+    "expo-linking": "~4.0.1",
+    "expo-status-bar": "~1.4.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.6",
+    "react-native-web": "~0.18.10",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@expo/webpack-config": "^18.0.3"
+  },
+  "private": true
+}
