@@ -1,0 +1,18 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "NodeNext",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": false,
+    "target": "ES2018",
+    "module": "NodeNext",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": "."
+  },
+  "exclude": ["node_modules", "tmp"]
+}
