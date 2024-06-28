@@ -1,0 +1,30 @@
+{
+  "name": "next-new-relic-integration",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodenv -E .env.local --exec \"next dev\"",
+    "build": "next build",
+    "start": "NODE_OPTIONS='--loader newrelic/esm-loader.mjs -r @newrelic/next --no-warnings' next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@newrelic/next": "^0.9.0",
+    "newrelic": "^11.19.0",
+    "next": "14.2.4",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/newrelic": "^9.14.4",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "node-env-run": "^4.0.2",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
