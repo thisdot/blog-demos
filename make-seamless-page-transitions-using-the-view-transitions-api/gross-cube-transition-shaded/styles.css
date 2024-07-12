@@ -1,0 +1,52 @@
+::view-transition {
+  perspective: 1000px;
+  background: #000;
+  inset: 0;
+}
+
+::view-transition-group(root),
+::view-transition-image-pair(root) {
+  transform-style: preserve-3d;
+  isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  backface-visibility: hidden;
+  animation: none;
+}
+
+@keyframes group-rotate {
+  to {
+    transform: rotateY(-90deg);
+  }
+}
+
+@keyframes fade-out-a-bit {
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fade-in-a-bit {
+  from {
+    opacity: 0.5;
+  }
+}
+
+::view-transition-group(root) {
+  transform-origin: 50% 50% -50vw;
+  animation: 600ms ease forwards group-rotate;
+}
+
+::view-transition-old(root) {
+  animation: 600ms ease forwards fade-out-a-bit;
+}
+
+::view-transition-new(root) {
+  transform-origin: 0 0;
+  transform: rotateY(90deg);
+  inset: 0 auto 0 100%;
+  animation: 600ms ease forwards fade-in-a-bit;
+}

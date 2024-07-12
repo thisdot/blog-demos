@@ -1,0 +1,24 @@
+::view-transition {
+  inset: 0;
+}
+
+::view-transition-image-pair(root) {
+  isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+}
+
+::view-transition-group(dust) {
+  inset: auto 0 0;
+  height: 35vh;
+  background: url("https://cdn.glitch.global/b2a0e9e8-12a2-4158-b2d8-11ef08ab8d68/dust%20(1).avif?v=1676473942321") repeat-x bottom;
+  background-size: contain;
+  transform: none;
+  width: auto;
+  transform-origin: 50% 100%;
+}

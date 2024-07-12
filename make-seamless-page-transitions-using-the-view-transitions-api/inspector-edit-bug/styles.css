@@ -1,0 +1,7 @@
+::view-transition-group(root) {
+  animation-duration: 1s;
+}
+
+::view-transition-new(root) {
+  transform: rotate(180deg);
+}

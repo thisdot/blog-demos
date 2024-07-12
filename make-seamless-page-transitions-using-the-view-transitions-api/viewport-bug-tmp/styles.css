@@ -1,0 +1,21 @@
+.main-header {
+  view-transition-name: main-header;
+  contain: layout;
+}
+
+.main-header-text {
+  view-transition-name: main-header-text;
+  contain: layout;
+  width: fit-content;
+}
+
+/*::view-transition-image-pair(root) {
+  isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+}*/

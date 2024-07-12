@@ -1,0 +1,67 @@
+::view-transition {
+  perspective: 1000px;
+  background: #000;
+  inset: 0;
+}
+
+::view-transition-group(root),
+::view-transition-image-pair(root) {
+  transform-style: preserve-3d;
+  isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  backface-visibility: hidden;
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: translateZ(0);
+  }
+  100% {
+    transform: translateZ(-600px);
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: translateZ(-600px);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+@keyframes flip-out {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
+}
+
+@keyframes flip-in {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+::view-transition-group(root) {
+  animation: 300ms ease forwards zoom-out, 300ms ease 950ms forwards zoom-in;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: 450ms ease 400ms forwards flip-out;
+}
+
+::view-transition-new(root) {
+  animation-name: flip-in;
+  transform: rotateY(180deg);
+}

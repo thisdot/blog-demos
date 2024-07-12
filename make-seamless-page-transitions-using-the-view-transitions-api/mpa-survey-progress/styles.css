@@ -1,0 +1,77 @@
+html, body {
+  min-height: 100svh;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.survey-progress {
+  --tick-size: 50px;
+}
+
+.survey-ticks {
+  position: relative;
+  height: var(--tick-size);
+  margin: 50px 75px;
+  --minor-tick-background: #d1d1d1;
+  --ticks-count: 7;
+}
+
+.survey-ticks::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  top: 50%;
+  translate: 0 -50%;
+  height: 2px;
+  background: var(--minor-tick-background);
+}
+
+.survey-ticks > * {
+  position: absolute;
+  top: 50%;
+  left: calc(100% * var(--tick-pos) / (var(--ticks-count) - 1));
+  translate: -50% -50%;
+  background: var(--minor-tick-background);
+  width: var(--tick-size);
+  height: var(--tick-size);
+  border-radius: var(--tick-size);
+}
+
+.survey-ticks > .survey-current {
+  --tick-size: 75px;
+  background: #737373;
+  overflow: clip;
+  view-transition-name: survey-current;
+}
+
+.survey-current-nums {
+  height: 100%;
+  font-size: 2rem;
+  color: #fff;
+  position: absolute;
+  inset: 0;
+  animation: progress-num 100ms steps(101);
+  animation-play-state: paused;
+  animation-fill-mode: both;
+  animation-delay: calc(-100ms * var(--tick-pos) / (var(--ticks-count) - 0.999));
+}
+
+.survey-current-nums > * {
+  height: 100%;
+  display: grid;
+  text-align: center;
+  align-content: center;
+}
+
+@keyframes progress-num {
+  to {
+    top: calc(-100% * 101);
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}

@@ -1,0 +1,37 @@
+@keyframes wipe-move {
+  to {
+    -webkit-mask-position: 100%;
+  }
+}
+
+@keyframes click-unblocker {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  -webkit-mask-image: linear-gradient(to right, transparent 47.5%, #000 52.5%);
+  -webkit-mask-size: 210%;
+  animation: 1.5s linear both wipe-move;
+}
+
+::view-transition-old(root) {
+  -webkit-mask-image: linear-gradient(to right, #000 47.5%, transparent 52.5%);
+}
+
+::view-transition-group(root) {
+  width: 100vw;
+}
+
+::view-transition-group(*) {
+  pointer-events: none;
+}
+
+::view-transition {
+  animation: 1.5s linear both click-unblocker;
+}

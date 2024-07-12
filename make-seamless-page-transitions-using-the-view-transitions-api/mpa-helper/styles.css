@@ -1,0 +1,72 @@
+.kimi-img {
+  width: 100%;
+  height: auto;
+}
+
+
+html.from-index.to-page-2 .main-header,
+html.from-page-2.to-index .main-header {
+  view-transition-name: main-header;
+}
+
+html.from-index.to-page-2 .main-header-text,
+html.from-page-2.to-index .main-header-text {
+  view-transition-name: main-header-text;
+  width: fit-content;
+}
+
+/*.main-header {
+  view-transition-name: main-header;
+}
+
+.main-header-text {
+  view-transition-name: main-header-text;
+  width: fit-content;
+}*/
+
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes slide-from-right {
+  from { transform: translateX(30px); }
+}
+
+@keyframes slide-to-left {
+  to { transform: translateX(-30px); }
+}
+
+@keyframes slide-to-right {
+  to { transform: translateX(30px); }
+}
+
+@keyframes slide-from-left {
+  from { transform: translateX(-30px); }
+}
+
+html::view-transition-old(root) {
+  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+html::view-transition-new(root) {
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+html.direction-back::view-transition-old(root) {
+  animation-name: fade-out, slide-to-right;
+}
+
+html.direction-back::view-transition-new(root) {
+  animation-name: fade-in, slide-from-left;
+}
+
+@view-transition {
+  navigation: auto;
+}

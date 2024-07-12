@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" style="--step: 4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>Demo</title>
+    <link rel="stylesheet" href="/base-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <header class="main-header">
+      <span class="main-header-text">Demo site</span>
+    </header>
+    <main class="content">
+      <h1 class="content-title">Step 4</h1>
+      <ol>
+        <li><a href="./">Step 1</a></li>
+        <li><a href="./step-2.html">Step 2</a></li>
+        <li><a href="./step-3.html">Step 3</a></li>
+        <li><a href="./step-4.html">Step 4</a></li>
+        <li><a href="./step-5.html">Step 5</a></li>
+        <li><a href="./step-6.html">Step 6</a></li>
+        <li><a href="./step-7.html">Step 7</a></li>
+      </ol>
+    </main>
+    <div class="survey-progress">
+      <div class="survey-ticks">
+        <div style="--tick-pos: 0"></div>
+        <div style="--tick-pos: 1"></div>
+        <div style="--tick-pos: 2"></div>
+        <div style="--tick-pos: 3"></div>
+        <div style="--tick-pos: 4"></div>
+        <div style="--tick-pos: 5"></div>
+        <div style="--tick-pos: 6"></div>
+        <div class="survey-current" style="--tick-pos: calc(var(--step) - 1)">
+          <div class="survey-current-nums"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

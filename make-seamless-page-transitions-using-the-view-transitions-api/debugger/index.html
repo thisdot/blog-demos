@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>View transition debugger</title>
+    <link rel="stylesheet" href="/base-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <form class="url-form">
+      <input class="url-input" placeholder="Path" value="/simple-element-change/">
+      <button class="go-button">Go!</button>
+    </form>
+    <iframe class="demo-iframe"></iframe>
+    <form class="anim-form">
+      <div class="range-fields">
+        <input class="pos-input" type="range" value="0" step="any" min="0" max="1" disabled>  
+        <button class="play-button" disabled>Play</button>
+      </div>
+    </form>
+  </body>
+</html>
