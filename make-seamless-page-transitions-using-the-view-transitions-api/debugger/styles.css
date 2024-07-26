@@ -1,0 +1,39 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100svh;
+}
+
+body {
+  font-family: sans-serif;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+}
+
+.demo-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.anim-form,
+.url-form {
+  display: grid;
+  padding: 10px;
+  gap: 10px;
+  background: #ccc;
+}
+
+.url-form {
+  grid-template-columns: 1fr max-content;
+}
+
+.anim-form {
+  grid-template-columns: 1fr;
+}
+
+.range-fields {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr max-content;
+}

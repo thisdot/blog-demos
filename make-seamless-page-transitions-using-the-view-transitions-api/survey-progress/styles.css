@@ -1,0 +1,92 @@
+@property --num-to-display {
+  inherits: false;
+  initial-value: 0;
+  syntax: '<integer>';
+}
+
+html, body {
+  min-height: 100svh;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.survey-progress {
+  --tick-size: 50px;
+}
+
+.survey-ticks {
+  position: relative;
+  height: var(--tick-size);
+  margin: 50px 75px;
+  --minor-tick-background: #d1d1d1;
+  --ticks-count: 7;
+}
+
+.survey-ticks::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  top: 50%;
+  translate: 0 -50%;
+  height: 2px;
+  background: var(--minor-tick-background);
+}
+
+.survey-ticks > * {
+  position: absolute;
+  top: 50%;
+  left: calc(100% * var(--tick-pos) / (var(--ticks-count) - 1));
+  translate: -50% -50%;
+  background: var(--minor-tick-background);
+  width: var(--tick-size);
+  height: var(--tick-size);
+  border-radius: var(--tick-size);
+}
+
+.survey-ticks > .survey-current {
+  --tick-size: 75px;
+  background: #737373;
+  overflow: clip;
+  view-transition-name: survey-current;
+}
+
+@keyframes progress-counter {
+  from {
+    --num-to-display: calc((var(--from-step, var(--step)) - 1) / (var(--ticks-count) - 1) * 100);
+  }
+  to {
+    --num-to-display: calc((var(--step) - 1) / (var(--ticks-count) - 1) * 100);
+  }
+}
+
+.survey-current-nums {
+  height: 100%;
+  font-size: 2rem;
+  color: #fff;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  text-align: center;
+  align-content: center;
+  counter-reset: yo var(--num-to-display);
+  animation: progress-counter 500ms both ease;
+}
+
+.survey-current-nums::before {
+  content: counter(yo);
+}
+
+::view-transition-group(*) {
+  animation-duration: 500ms;
+}
+
+::view-transition-old(survey-current) {
+  display: none;
+}
+
+::view-transition-new(survey-current) {
+  animation: none;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>Demo</title>
+    <link rel="stylesheet" href="/base-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="view-transition" content="same-origin">
+    <script src="helper.js"></script>
+    <script>
+      crossDocVTHelper({
+        routes: [
+          ['index', '/mpa-helper/'],
+          ['page-2', '/mpa-helper/page-2.html']
+        ],
+        handleTransition(transition) {
+          transition.delayStart(
+            document.querySelector('.kimi-img')?.decode(),
+          );
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <header class="main-header">
+      <a href="./" class="back-and-title">
+        <svg class="back-icon" viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z"></path></svg>
+        <span class="main-header-text">Demo site</span>
+      </a>
+    </header>
+    <main class="content">
+      <h1 class="content-title">Page 2</h1>
+      <p>This is the content for page 2.</p>
+      <ol>
+        <li>It</li>
+        <li>also</li>
+        <li>has</li>
+        <li>a</li>
+        <li>list!</li>
+      </ol>
+      <p>Ok, that's enough fun, you can go back to <a href="./">page 1</a>.</p>
+      <img width="2340" height="1316" class="kimi-img" src="https://random-server-stuff.glitch.me/slow-redirect?to=https%3A%2F%2Fcdn.glitch.global%2Fb2a0e9e8-12a2-4158-b2d8-11ef08ab8d68%2Fkimi-large.jpg%3Fv%3D1658763217382">
+    </main>
+  </body>
+</html>

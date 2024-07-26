@@ -1,0 +1,86 @@
+.main-header {
+  view-transition-name: main-header;
+  contain: layout;
+}
+
+.main-header-text {
+  view-transition-name: main-header-text;
+  contain: layout;
+  width: fit-content;
+}
+
+gesture-transition:not(:defined) {
+  display: none;
+}
+
+gesture-transition[direction=forward] {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+gesture-transition[direction=back] {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes slide-from-right {
+  from { transform: translateX(30px); }
+}
+
+@keyframes slide-to-left {
+  to { transform: translateX(-30px); }
+}
+
+@keyframes full-slide-from-right {
+  from { transform: translateX(100%); }
+}
+
+@keyframes full-slide-to-left {
+  to { transform: translateX(-100%); }
+}
+
+@keyframes full-slide-to-right {
+  to { transform: translateX(100%); }
+}
+
+@keyframes full-slide-from-left {
+  from { transform: translateX(-100%); }
+}
+
+.default-transition::view-transition-old(root) {
+  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+.default-transition::view-transition-new(root) {
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+.linear-slide::view-transition-old(root) {
+  animation: 300ms linear both full-slide-to-left;
+}
+
+.linear-slide::view-transition-new(root) {
+  animation: 300ms linear both full-slide-from-right;
+}
+
+.linear-slide-back::view-transition-old(root) {
+  animation: 300ms linear both full-slide-to-right;
+}
+
+.linear-slide-back::view-transition-new(root) {
+  animation: 300ms linear both full-slide-from-left;
+}

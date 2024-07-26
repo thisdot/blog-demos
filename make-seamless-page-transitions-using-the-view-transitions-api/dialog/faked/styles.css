@@ -1,0 +1,64 @@
+.fake-dialog-container {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+}
+
+.fake-dialog-container.hidden {
+  display: none;
+}
+
+.fake-dialog-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 50%);
+}
+
+.dialog {
+  background: white;
+  border-radius: 10px;
+  padding: 10px 40px;
+  max-width: 400px;
+  position: relative;
+  view-transition-name: dialog;
+  contain: paint;
+}
+
+@keyframes show-dialog {
+  from {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes hide-dialog {
+  to {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+.show-dialog-transition::view-transition-new(dialog) {
+  animation:
+    200ms ease-out both fade-in,
+    300ms cubic-bezier(0.34, 1.56, 0.64, 1) both show-dialog;
+}
+
+.hide-dialog-transition::view-transition-old(dialog) {
+  animation:
+    200ms ease-out both fade-out,
+    300ms ease-out both hide-dialog;
+}

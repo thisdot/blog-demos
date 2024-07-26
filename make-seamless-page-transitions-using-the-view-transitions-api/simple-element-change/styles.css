@@ -1,0 +1,57 @@
+.hidden {
+  display: none;
+}
+
+.old-view,
+.new-view {
+  padding: 20px 35px;
+  background: green;
+  color: #fff;
+  font-size: 30px;
+  width: fit-content;
+  border-radius: 15px;
+  
+  view-transition-name: box;  
+  contain: layout;
+}
+
+.new-view {
+  padding: 20px 50px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #38e8da;
+  color: #000;
+}
+
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 500ms;
+  
+}
+
+::view-transition-group(box) {
+  overflow: hidden;
+}
+
+::view-transition-old(box),
+::view-transition-new(box) {
+  height: 100%;
+}
+
+.old-view div,
+.new-view div {
+  view-transition-name: box-text;
+  contain: layout;
+}
+
+::view-transition-group(box-text) {
+  overflow: hidden;
+}
+
+::view-transition-old(box-text),
+::view-transition-new(box-text) {
+  height: 100%;
+  width: auto;
+}
