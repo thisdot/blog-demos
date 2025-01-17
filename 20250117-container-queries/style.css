@@ -1,0 +1,187 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  background-color: #111;
+  padding: 20px;
+  border-right: 1px solid #333;
+}
+
+.sidebar-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.sidebar-nav {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+  color: #888;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+  color: #fff;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  container-type: inline-size;
+  container-name: cards-container;
+}
+
+.card {
+  background-color: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 600px;
+  min-width: 300px;
+  border: 1px solid #333;
+  transition: border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card p {
+  font-size: clamp(8px, 2cqi, 16px);
+}
+
+.card:hover {
+  border-color: #666;
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.card-left {
+  flex: 1;
+  padding: 24px;
+  border-right: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-right {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-description {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.card-content {
+  flex-grow: 1;
+  margin-top: 16px;
+}
+
+.button {
+  background-color: #fff;
+  border: none;
+  color: #000;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  margin-top: auto;
+}
+
+.button:hover {
+  background-color: #f0f0f0;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #333;
+  }
+}
+
+/* Fallback for browsers that don't support container queries */
+@supports not (container-type: inline-size) {
+  @media screen and (max-width: 1024px) {
+    .card-inner {
+      flex-direction: column;
+    }
+
+    .card-left {
+      border-right: none;
+      border-bottom: 1px solid #333;
+    }
+  }
+}
+
+@container cards-container (max-width: 400px) {
+  .card-inner {
+    flex-direction: column;
+  }
+
+  .card-left {
+    border-right: none;
+    border-bottom: 1px solid #333;
+  }
+}
